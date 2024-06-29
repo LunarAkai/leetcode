@@ -15,7 +15,6 @@
     X can be placed before L (50) and C (100) to make 40 and 90. 
     C can be placed before D (500) and M (1000) to make 400 and 900.
 
-
     Constraints:
 
     1 <= s.length <= 15
@@ -46,7 +45,21 @@ fn match_roman_to_int(s: &str) -> u32 {
 fn add_roman_numerals(s: &str) -> u32 {
     let mut result = 0;
     for n in 0..s.chars().count() {
-        result = result + match_roman_to_int(s.chars().nth(n).unwrap().to_string().as_str());
+        // if s == I || .. X || .. C
+        let c = s.chars().nth(n).unwrap();
+        let substract = false;
+
+        if (c == 'I' || c == 'X' || c == 'C') && s.chars().nth(n+1).is_some() {
+            let c_plus_one = s.chars().nth(n+1).unwrap(); {}
+
+            match c {
+                'I' => todo!(),
+                'X' => todo!(),
+                'C' => todo!(),
+                _ => break
+            }
+        }
+        result = result + match_roman_to_int(c.to_string().as_str());
     }
     return result;
 }
@@ -113,6 +126,6 @@ mod tests {
     #[test]
     fn roman_four_test() {
         let s = "IV";
-        assert_eq!(4, 4);
+        assert_eq!(add_roman_numerals(s), 4);
     }
 }
