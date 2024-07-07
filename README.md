@@ -1,9 +1,11 @@
 # My Leetcode Solutions
 
 ## Done
+Note: beats values are at the time of completion
+
 - [1. Two Sums](https://github.com/LunarAkai/leetcode/tree/main/two_sums)
     - Runtime: 300ms, Beats: 7,90%
-    - Memory: 2,18 MB, Beats 87,98%
+    - Memory: 2,18 MB, Beats: 87,98%
     - Time Complexity: O(n log n)
 
 
