@@ -64,7 +64,19 @@ fn add_roman_numerals(s: &str) -> u32 {
     return result;
 }
 
+fn is_relevant_char_for_substraction(previous: &char, c: &char) -> bool {
+    if previous.eq_ignore_ascii_case('I') && (c == 'V' || c == 'X') {
+        true
+    } else if previous == 'X' && (c == 'L' || c == 'C') {
+        true
+    } else if previous == 'C' && (c == 'D' || c == 'M') {
+        true
+    } else {
+        false
+    }
 
+}
+ 
 #[cfg(test)]
 mod tests {
     use super::*;
