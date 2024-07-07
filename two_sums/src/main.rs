@@ -17,6 +17,8 @@ fn main() {
     input_array = vec![3,3];
     target = 6;
     println!("{:?}", two_sums(input_array, target));  
+
+    println!("====================================");
 }
 
 fn find_keys_for_value<'a>(map: &'a BTreeMap<i32, i32>, value: &i32) -> Vec<&'a i32> {
@@ -35,23 +37,21 @@ fn two_sums(nums: Vec<i32>, target: i32) -> Vec<i32> {
         index+=1;
     }
 
-    for (k_index,v_number) in nums_hashmap.iter() {
-        println!("k_index: {}, v_number: {}", *k_index, *v_number);
+    for (k_index,v_number) in nums_hashmap.iter()  {
         let should_be = target - v_number; 
-        println!("should be: {}", should_be);
-
-        if(!find_keys_for_value(&nums_hashmap, &should_be).is_empty()) {
+        
+        if !find_keys_for_value(&nums_hashmap, &should_be).is_empty() {
             for key in find_keys_for_value(&nums_hashmap, &should_be).iter() {
                 if k_index == key.to_owned() {
                     continue;
                 }
-                println!("found value: {}", key);
                 return vec![*k_index, **key];
             }
         }
     }
     vec![]
 }
+
 
 #[cfg(test)]
 mod tests {
